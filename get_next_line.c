@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:35:53 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/23 17:04:28 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/23 18:46:05 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 char	*get_next_line(int fd)
 {
-	char	*return_buffer;
+	char	*buffer;
+	int		readbytes;
 
-	return_buffer = (char *)malloc(ft_strlen());
+	buffer = ft_allocate_buffer(void);
+	readbytes = read(fd, buffer, BUFFER_SIZE);
+
+
 	return (return_buffer);
 }
