@@ -6,15 +6,20 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:19 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/23 16:03:32 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/23 16:52:47 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE
+
+BUFFER_SIZE = 3;
+
+#  include <unistd.h>
 
 char	*get_next_line(int fd);
 
-#endif
+# endif
