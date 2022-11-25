@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:19 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/23 18:47:15 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/25 18:46:25 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ BUFFER_SIZE = 3;
 #  include <unistd.h>
 
 char	*get_next_line(int fd);
-int		ft_strlen(char *s);
-char	*ft_allocate_return_buffer(char *s);
-char	*ft_allocate_buffer(void);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+
 
 # endif
