@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 15:29:19 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:25:38 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,42 +50,29 @@ char	*ft_allocate_join(char *fl, char *bf)
 	return (p);
 }
 
-int	ft_check_newline(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\n' && s[i])
-		i++;
-	if (s[i] == '\n')
-		return (1);
-	return (0);
-}
-
 char	*ft_freeline(char *fl)
 {
 	free(fl);
 	return (NULL);
 }
 
-char	*ft_reset_buffer(char *buffer)
+int	ft_reset_buffer(char *buffer)
 {
 	int	i;
 	int	j;
+	int	flag;
 
 	i = 0;
 	j = 0;
-	while (buffer[i] != '\n' && buffer[i])
+	flag = 0;
+	while (buffer && buffer[i])
+	{
+		if (flag == 1)
+			buffer[j++] = buffer[i];
+		if (buffer[i] == '\n')
+			flag = 1;
+		buffer[i] = 0;
 		i++;
-	while (buffer[i++ + j])
-	{
-		buffer[j] = buffer [i + j];
-		j++;
 	}
-	if (buffer[(i - 1) + j] == '\0')
-	{
-		while (buffer[j++])
-			buffer[j] = '\0';
-	}
-	return (buffer);
+	return (flag);
 }
