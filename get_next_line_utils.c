@@ -6,16 +6,22 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 13:48:34 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 14:49:42 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 int	ft_checklen(char *s)
 {
 	int	i;
 
+	if (!s || !*s)
+		return (0);
 	i = 0;
-	while (s[i] && s[i] != '\n')
+	while (s && s[i] && s[i] != '\n')
+		i++;
+	if (s && s[i] == '\n')
 		i++;
 	return (i);
 }
@@ -30,15 +36,15 @@ char	*ft_allocate_join(char *fl, char *bf)
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (p[i] && fl[i])
+	while (p && fl && fl[i])
 	{
 		p[i] = fl[i];
 		i++;
 	}
 	j = 0;
-	while (p[i] && bf[j] && bf[j] != '\n')
+	while (p && bf[j] && bf[j] != '\n')
 		p[i++] = bf[j++];
-	if (bf[j] == '\n')
+	if (p && bf[j] == '\n')
 		p[i++] = bf[j];
 	p[i] = '\0';
 	return (p);
@@ -55,7 +61,6 @@ int	ft_check_newline(char *s)
 		return (1);
 	return (0);
 }
-
 
 char	*ft_reset_buffer(char *buffer)
 {
