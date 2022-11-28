@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 14:49:42 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 15:05:53 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	ft_checklen(char *s)
 {
 	int	i;
 
-	if (!s || !*s)
-		return (0);
 	i = 0;
 	while (s && s[i] && s[i] != '\n')
 		i++;
@@ -36,17 +34,19 @@ char	*ft_allocate_join(char *fl, char *bf)
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (p && fl && fl[i])
+	while (fl && fl[i])
 	{
 		p[i] = fl[i];
 		i++;
 	}
 	j = 0;
-	while (p && bf[j] && bf[j] != '\n')
+	while (bf && bf[j] && bf[j] != '\n')
 		p[i++] = bf[j++];
-	if (p && bf[j] == '\n')
+	if (bf && bf[j] == '\n')
 		p[i++] = bf[j];
 	p[i] = '\0';
+	if (fl)
+		free (fl);
 	return (p);
 }
 
