@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:19 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 14:03:19 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 15:30:22 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_checklen(char *s);
 char	*ft_allocate_join(char *fl, char *bf);
 int		ft_check_newline(char *s);
 char	*ft_reset_buffer(char *buffer);
+char	*ft_freeline(char *fl);
 
 #endif

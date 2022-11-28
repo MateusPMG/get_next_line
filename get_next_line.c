@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:35:53 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 14:40:04 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 15:29:40 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1 || fd > FOPEN_MAX)
 		return (NULL);
-	read_n = 1;
 	full_line = ft_allocate_join(0, buffer);
+	if (ft_check_newline(full_line))
+	{
+		ft_reset_buffer(buffer);
+		return (full_line);
+	}
+	read_n = read(fd, buffer, BUFFER_SIZE);
+	if (read_n < 0)
+		return (ft_freeline(full_line));
 	while (read_n > 0)
 	{
-		if (!*buffer)
-			read_n = read (fd, buffer, BUFFER_SIZE);
 		full_line = ft_allocate_join(full_line, buffer);
 		if (ft_check_newline(full_line))
 			break ;

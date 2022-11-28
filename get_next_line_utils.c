@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 15:05:53 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 15:29:19 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ int	ft_check_newline(char *s)
 	if (s[i] == '\n')
 		return (1);
 	return (0);
+}
+
+char	*ft_freeline(char *fl)
+{
+	free(fl);
+	return (NULL);
 }
 
 char	*ft_reset_buffer(char *buffer)
