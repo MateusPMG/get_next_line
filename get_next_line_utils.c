@@ -6,7 +6,7 @@
 /*   By: mpatrao <mpatrao@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:36:42 by mpatrao           #+#    #+#             */
-/*   Updated: 2022/11/28 16:25:38 by mpatrao          ###   ########.fr       */
+/*   Updated: 2022/11/28 16:39:52 by mpatrao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ char	*ft_allocate_join(char *fl, char *bf)
 		i++;
 	}
 	j = 0;
-	while (bf && bf[j] && bf[j] != '\n')
+	while (bf[j] && bf[j] != '\n')
 		p[i++] = bf[j++];
-	if (bf && bf[j] == '\n')
+	if (bf[j] == '\n')
 		p[i++] = bf[j];
 	p[i] = '\0';
 	if (fl)
